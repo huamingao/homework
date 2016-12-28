@@ -1,0 +1,6 @@
+0001 XiaoMing 50000 -600.0 0
+0002 XiaoLei 50000 0.0 0
+0003 ShoppingMall 15000 600.0 0
+0004 XiaoHei 15000  0.0 0
+0005 tntxyz 15000 0.0 0
+0006 xiaozhang 15000 0.0 0

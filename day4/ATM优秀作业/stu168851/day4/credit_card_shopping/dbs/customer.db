@@ -1,0 +1,29 @@
+[
+    {
+        "tel": "13800138000",
+        "mail": "61411916@qq.com",
+        "password": "e10adc3949ba59abbe56e057f20f883e",
+        "username": "lisi",
+        "address": "北京市通州区",
+        "cart": [],
+        "name": "李四"
+    },
+    {
+        "tel": "13000000000",
+        "mail": "a@b.com",
+        "password": "e10adc3949ba59abbe56e057f20f883e",
+        "username": "zhangsan",
+        "address": "北京市通州区",
+        "cart": [],
+        "name": "张三"
+    },
+    {
+        "tel": "13800013800",
+        "mail": "yibo090@126.com",
+        "password": "e10adc3949ba59abbe56e057f20f883e",
+        "username": "chenyibo",
+        "address": "fldasjg'asg",
+        "cart": [],
+        "name": "陈益波"
+    }
+]

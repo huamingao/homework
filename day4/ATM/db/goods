@@ -1,0 +1,35 @@
+{
+    "Electric Appliance":{
+        "TV":{
+            "Haier":3000,
+            "TCL":2000
+        },
+        "air condition":{
+            "Midea":2000,
+            "Gree":3000
+        }
+    },
+    "Phone":{
+        "IPhone":{
+            "IPhone7":7000,
+            "IPhone6":5000,
+            "IPhone5":3999
+        },
+        "Samsung":{
+            "Note7":2000,
+            "Note5":1500
+        }
+    },
+    "Cloth":{
+        "H&M":{
+            "dress":300,
+            "T-shirt":100,
+            "socks":20
+        },
+        "Zara":{
+            "coat":900,
+            "jacket":400,
+            "hat":80
+        }
+    }
+}

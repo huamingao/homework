@@ -1,0 +1,1 @@
+{"credit": 1000, "is_authenticated": true, "username": "jack", "debt": [{"month_debt": 1.05, "month": "201610", "status": "pending billing", "delay_fee": 0}], "enroll_date": 1476187702.4229872, "balance": 998.95, "status": 0, "card_num": "006995", "savings": 0, "expire_date": 1602259200.0, "password": "pwd", "user_type": "user"}
