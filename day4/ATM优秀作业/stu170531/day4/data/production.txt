@@ -1,0 +1,5 @@
+potato 30
+tomato 50
+carret 20
+apple 100
+orange 300

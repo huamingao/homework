@@ -1,0 +1,73 @@
+﻿ATM + 购物车
+
+分为管理员、普通用户两种角色，各角色的功能分类及所用函数如下：
+
+##############
+管理员：admin.py
+##############
+
+全局变量
+CURRENT_USER_INFO = {'is_authenticated':False,'username':''}
+
+管理员账号：admin
+管理员密码：pwd
+
+1、管理员登录:login
+2、创建账户:create_user  自动生成00+4位随机数组成的卡号
+3、删除账户:remove_user
+4、修改额度:set_credit
+5、冻结账户:lock_user
+6、查询账户:调用client.py中的print_user函数,输入卡号，可查询卡片信息
+退出请输q
+
+################
+普通用户：client.py
+################
+
+全局变量
+CURRENT_USER_INFO = {'is_authenticated':False,'username':''}
+
+存储卡片信息
+base_info = {'card_num':card_num,  # 00 + 4位随机数
+             'user_type':'user',  # 用户类型
+             'username':username,
+             'password':password,
+             'credit':credit,   # 信用卡额度
+             'balance':balance, #当前可用额度
+             'savings':0,   # 储蓄金额
+             'enroll_date':enroll_date_timestamp,   # 发卡日（还款日）
+             'expire_date':expire_date_timestamp,    # 信用卡过期时间
+             'status':0,  # 0：卡正常  1：卡锁定
+             'debt':[]   # 欠款记录，如：[{'date':'201609' ,'month_debt':8000,'status':'already billed'},{'date':'201605','month_debt':5000,'status':'pending billing'}]
+             }
+
+1、登录账户：login
+2、查看账户:print_user
+3、购买商品：shopping
+4、查看账单：show_bill
+5、我要提现:withdraw_credit 提现会使导致当前可用信用额度（balance）减少,储蓄金额（savings）增加，提现手续费为提现金额*0.05
+6、我要还款：repay_debt 直接将还款月的balance置为0
+7、我要转账:transfer 当savings>0，才能转账到别的卡的savings中(即，必须先提现到储蓄金额，才能转账)
+退出，请输q
+
+client.py中额外的函数：
+
+load_current_user(card_num):
+从文件读取信用卡用户信息，赋值给全局变量CURRENT_USER_INFO
+
+dump_current_user(current_user_info):
+把全局变量current_user_info dump到对应用户的userinfo文件中
+
+calculate_debt_balance(cost):
+每当发生欠款，调用此函数更新全局变量CURRENT_USER_INFO['debt']
+如果发生欠款的当月，此前已存在欠款记录，CURRENT_USER_INFO['debt']['month']自增
+如果发生欠款的当月，尚无欠款记录，CURRENT_USER_INFO['debt']新增一条记录
+
+make_out_bill:
+每次成功登陆后就调用此函数
+每月1日位账单日，出上月账单，出账后CURRENT_USER_INFO['debt']['status']从pending billing置为already billed
+每月enroll_date为还款日，需在此前还上月账单，否则，按0.01*欠款逐天收取滞纳金（复利计算）
+
+
+write_record(user_dict,message):
+生成日志文件，记录信用卡收入支出流水

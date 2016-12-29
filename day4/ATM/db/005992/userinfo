@@ -1,0 +1,1 @@
+{"savings": 0, "card_num": "005992", "username": "leon", "status": 0, "user_type": "user", "password": "pwd", "credit": 5000, "enroll_date": 1476185303.2517872, "balance": 2897.8999999999996, "debt": [{"month": "201610", "status": "pending billing", "month_debt": 2102.1000000000004, "delay_fee": 0}], "is_authenticated": true, "expire_date": 1602259200.0}

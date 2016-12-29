@@ -1,0 +1,27 @@
+Name:haproxyCFG
+Auther: Kaye Gao
+Blog:http://www.cnblogs.com/huamingao/
+
+# Requirement
+HAproxy配置文件操作
+1. 提示用户输入
+输入1查看，提示输入backend，获取backend节点下所有记录，并打印到终端
+输入2添加，提示输入要加的记录，若backend存在，在其节点下新增记录；若backend不存在，新增backend节点和记录；若信息与已有信息重复则不操作
+输入3修改，提示输入要修改的记录，若backend存在，修改指定记录；若backend不存在，提示不存在，询问是否要添加该backend节点和记录；若信息与已有信息重复则不操作，要求重新输入
+输入4删除，提示输入要删除的内容，若backend存在，删除节点及其下所有记录；若backend不存在，提示不存在，要求重新输入
+输入5备份，备份文件到haproxy.cfg_bak
+输入q退出程序
+如果输入其他选项，提示输入不合法；程序循环运行，直至用户输入q才退出程序
+2. 如果输入2、3、4，在执行操作前，备份配置文件为haproxy.cfg_bak
+
+# 函数功能介绍
+def check(backend): 查看记录
+def trans_content(content): 使用json转换输入内容为字典
+def add(backend,record): 添加记录
+def modify(backend,record): 修改记录
+def delete(backend,record): 删除记录
+def backup(): 备份配置文件为haproxy.cfg_bak
+def main()：主函数
+
+
+

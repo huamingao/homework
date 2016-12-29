@@ -1,0 +1,54 @@
+﻿Name:SelectCourse
+Auther: Kaye Gao
+Blog:http://www.cnblogs.com/huamingao/
+
+
+# 测试账号，所有密码均为pwd
+学生账号：kaye 
+老师账号：alex, WuSir
+管理员账号：admin
+
+# Requirement
+选课系统
+1. 管理员设置课程信息和老师信息
+2. 老师上课获得课时费
+3. 学生上课，学到“上课内容”
+4. 学生可自选课程
+5. 学生可查看已选课程和上课记录
+6. 学生可评价老师，差评老师要扣款
+7. 使用pickle
+
+# 数据定义
+
+User类：
+    静态方法：login()
+
+Student类：继承User类
+    属性：account, password, name,sex, age, course[], attend_record{},file
+    方法：show_options(), register_account(), show_all_course(), select_course(),
+    add_course(), attend_course(), show_selected_course(), show_attend(), evaluate_teacher()
+
+Admin类：继承User类
+    属性：account,password,file
+    方法：show_options(), create_course(),create_teacher(), show_student()
+
+Teacher类：
+    属性：name, sex, age, asset
+
+Course类：
+    属性：name, time, fee, teacher_obj
+
+
+# 功能入口
+
+管理员入口：
+    1. 创建老师
+    2. 创建课程
+    3. 查看学生信息
+
+学生入口：
+    1. 选课
+    2. 签到
+    3. 查看已选课程
+    4. 查看上课记录
+    5. 评价老师
