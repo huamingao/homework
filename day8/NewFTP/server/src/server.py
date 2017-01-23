@@ -102,6 +102,13 @@ def login(conn,name,password):
             conn.send(SUCCESS_LOGIN.encode('utf-8'))
 
 
+def check_name(conn,name):
+    if os.path.exists(os.path.join(USER_HOME_DIR,name)):
+        conn.send(NAME_EXIST.encode('utf-8'))
+    else:
+        conn.send(NAME_NO_EXIST.encode('utf-8'))
+
+
 def register(conn,name,password):
     """
     注册新用户
@@ -176,7 +183,6 @@ def handle_request(conn,data):
     elif operation == OVERWRITE_FILE_INVENTORY:
         overwrite_file_inventory(conn,*data)
     elif operation == OVERWRITE_FILE_HOME:
-        print('before overwrite home dir')
         overwrite_file_home(conn,*data)
     # 如果客户端是要执行命令
     elif operation == RUN_CMD:
